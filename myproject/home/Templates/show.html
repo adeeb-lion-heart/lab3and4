@@ -1,0 +1,106 @@
+<!-- home/templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %} مقارنة قواعد البيانات في Django{% endblock %}
+
+{% block content %}
+<H2>عرض المهام</H2>
+
+    <style>
+        /* body {
+            font-family: Tahoma, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style> */
+
+
+<h1>مقارنة قواعد البيانات في Django</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>قاعدة البيانات</th>
+            <th>النوع</th>
+            <th>طريقة التعامل مع Django</th>
+            <th>المزايا</th>
+            <th>العيوب</th>
+            <th>أفضل استخدام</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>SQLite</b></td>
+            <td>Relational (خفيفة)</td>
+            <td>تأتي مثبتة مع Django، لا تحتاج إعدادات خارجية.<br>في <code>settings.py</code>: <code>ENGINE: 'django.db.backends.sqlite3'</code></td>
+            <td>✅ سهلة الاستخدام للمشاريع الصغيرة والتجريبية، لا تحتاج تثبيت خادم</td>
+            <td>❌ غير مناسبة للمشاريع الكبيرة أو المتعددة المستخدمين</td>
+            <td>المشاريع الصغيرة، التجارب، التعلم</td>
+        </tr>
+        <tr>
+            <td><b>MySQL</b></td>
+            <td>Relational</td>
+            <td>تحتاج تثبيت MySQL Server و <code>mysqlclient</code> أو <code>PyMySQL</code>.<br>في <code>settings.py</code>: <code>ENGINE: 'django.db.backends.mysql'</code></td>
+            <td>✅ سريعة، مدعومة بشكل كبير، مناسبة للمشاريع الكبيرة</td>
+            <td>❌ تحتاج إعدادات خادم، التعامل مع الحزم أحياناً صعب</td>
+            <td>المشاريع الكبيرة، التطبيقات الإنتاجية</td>
+        </tr>
+        <tr>
+            <td><b>PostgreSQL</b></td>
+            <td>Relational</td>
+            <td>تثبيت PostgreSQL و <code>psycopg2</code>.<br>في <code>settings.py</code>: <code>ENGINE: 'django.db.backends.postgresql'</code></td>
+            <td>✅ قوية، تدعم أنواع بيانات معقدة، أفضل للأداء وللتطبيقات الكبيرة</td>
+            <td>❌ تحتاج إعدادات خادم</td>
+            <td>المشاريع الكبيرة، التي تحتاج معاملات متقدمة، دعم JSON</td>
+        </tr>
+        <tr>
+            <td><b>Oracle</b></td>
+            <td>Relational</td>
+            <td>تحتاج Oracle client و <code>cx_Oracle</code></td>
+            <td>✅ قوية جداً، مدعومة للمؤسسات</td>
+            <td>❌ صعبة الإعداد، ترخيص مدفوع</td>
+            <td>المشاريع المؤسسية الكبيرة</td>
+        </tr>
+        <tr>
+            <td><b>MariaDB</b></td>
+            <td>Relational</td>
+            <td>مشابهة لـ MySQL، في <code>settings.py</code>: <code>ENGINE: 'django.db.backends.mysql'</code></td>
+            <td>✅ مفتوحة المصدر، متوافقة مع MySQL</td>
+            <td>❌ نفس عيوب MySQL البسيطة</td>
+            <td>المشاريع الكبيرة مفتوحة المصدر</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+{% endblock %}

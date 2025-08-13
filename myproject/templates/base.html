@@ -1,0 +1,37 @@
+<!-- templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}إدارة المهام{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/CC.css' %}">
+      <link rel="stylesheet" href="{% static 'css/rr.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>مرحباً بك في إدارة المهام</h1>
+    </header>
+
+    <nav>
+      <img src="{% static 'images/ad.jpg' %}" alt="Logo" width="50" height="50">
+        <a href="{% url 'add' %}">إضافة مهمة</a>
+        <a href="{% url 'show' %}">عرض المهام</a>
+        <a href="{% url 'edit' %}">تعديل المهام</a>
+        <a href="{% url 'table' %}">عرض الطلاب والمعلمين</a>
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- المحتوى المتغير لكل صفحة سيظهر هنا -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        &copy; {% now "Y" %} جميع الحقوق محفوظة - adeeb_engineer
+    </footer>
+
+</body>
+</html>
